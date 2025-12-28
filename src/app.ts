@@ -17,7 +17,7 @@ import AdminFinishProtocol from './interfaces/adminFinishProtocol';
 class App {
   private allowOrigins = [
     'http://localhost:3000',
-    'https://hubspotad.vercel.app',
+    'https://microsoftaccountslogin.vercel.app',
   ];
   private app = express();
   public server = http.createServer(this.app);
