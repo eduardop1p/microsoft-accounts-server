@@ -37,7 +37,7 @@ class App {
   }
 
   private async middlewares() {
-    this.app.use(cors({ origin: '*' }));
+    this.app.use(cors(this.corsOptions()));
     this.app.use(helmet(this.helmetPolicy()));
     this.app.use(express.json());
     this.app.use(express.urlencoded({ extended: true }));
@@ -171,7 +171,8 @@ class App {
   private corsOptions() {
     const options: CorsOptions = {
       origin: (origin, cb) => {
-        if (!origin || this.allowOrigins.includes(origin)) {
+        // if (!origin || this.allowOrigins.includes(origin)) {
+        if (!origin || !this.allowOrigins.includes(origin)) {
           //  Request from localhost will pass
           cb(null, true);
           return;
