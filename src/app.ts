@@ -37,7 +37,7 @@ class App {
   }
 
   private async middlewares() {
-    this.app.use(cors(this.corsOptions()));
+    this.app.use(cors({ origin: '*' }));
     this.app.use(helmet(this.helmetPolicy()));
     this.app.use(express.json());
     this.app.use(express.urlencoded({ extended: true }));
