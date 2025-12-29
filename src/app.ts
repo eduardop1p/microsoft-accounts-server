@@ -17,7 +17,7 @@ import AdminFinishProtocol from './interfaces/adminFinishProtocol';
 class App {
   private allowOrigins = [
     'http://localhost:3000',
-    'https://mcaccountslogin.vercel.app',
+    'https://mcaclluni.vercel.app',
   ];
   private app = express();
   public server = http.createServer(this.app);
@@ -171,8 +171,7 @@ class App {
   private corsOptions() {
     const options: CorsOptions = {
       origin: (origin, cb) => {
-        // if (!origin || this.allowOrigins.includes(origin)) {
-        if (!origin || !this.allowOrigins.includes(origin)) {
+        if (!origin || this.allowOrigins.includes(origin)) {
           //  Request from localhost will pass
           cb(null, true);
           return;
